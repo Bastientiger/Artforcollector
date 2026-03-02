@@ -1,0 +1,81 @@
+import type { Artwork } from '@/components/ArtworkGallery';
+
+// Tu peux modifier ce fichier pour ajouter, modifier ou supprimer des œuvres
+
+export const artworksForSale: Artwork[] = [
+  {
+    id: 1,
+    title: "Éclat Céleste",
+    artist: "Marie Laurent",
+    year: "2024",
+    medium: "Acrylique sur toile",
+    dimensions: "120 x 80 cm",
+    price: "8 500 €",
+    image: "/images/artwork-1.jpg?v=2",
+    description: "Une explosion de couleurs bleues et dorées qui évoque l'énergie cosmique et la lumière des étoiles.",
+    status: 'available',
+  },
+  {
+    id: 2,
+    title: "Forme Pure",
+    artist: "Jean Dubois",
+    year: "2023",
+    medium: "Marbre de Carrare",
+    dimensions: "60 x 40 x 30 cm",
+    price: "12 000 €",
+    image: "/images/artwork-2.jpg?v=2",
+    description: "Sculpture minimaliste aux lignes fluides et organiques, taillée dans un marbre blanc pur.",
+    status: 'available',
+  },
+  {
+    id: 3,
+    title: "Chaos Organisé",
+    artist: "Sarah Chen",
+    year: "2024",
+    medium: "Technique mixte sur toile",
+    dimensions: "100 x 100 cm",
+    price: "6 200 €",
+    image: "/images/artwork-3.jpg?v=2",
+    description: "Collage vibrant explorant la complexité de l'émotion humaine à travers des textures et des couleurs audacieuses.",
+    status: 'reserved',
+  },
+  {
+    id: 4,
+    title: "Regard Intérieur",
+    artist: "Pierre Martin",
+    year: "2023",
+    medium: "Huile sur toile",
+    dimensions: "90 x 70 cm",
+    price: "9 800 €",
+    image: "/images/artwork-4.jpg?v=2",
+    description: "Portrait expressif aux couleurs audacieuses qui capture l'âme et la profondeur du sujet.",
+    status: 'available',
+  },
+  {
+    id: 5,
+    title: "Géométrie Dorée",
+    artist: "Anna Schmidt",
+    year: "2024",
+    medium: "Acrylique et feuille d'or sur toile",
+    dimensions: "80 x 60 cm",
+    price: "7 500 €",
+    image: "/images/artwork-5.jpg?v=2",
+    description: "Composition géométrique élégante et sophistiquée, mêlant formes précises et touches dorées.",
+    status: 'available',
+  },
+  {
+    id: 6,
+    title: "Brumes Matinales",
+    artist: "Lucas Weber",
+    year: "2023",
+    medium: "Huile sur toile",
+    dimensions: "150 x 80 cm",
+    price: "11 000 €",
+    image: "/images/artwork-6.jpg?v=2",
+    description: "Paysage abstrait aux tons sombres et atmosphériques, évoquant le mystère de l'aube.",
+    status: 'sold',
+  },
+];
+
+// Tu peux créer d'autres collections
+export const featuredArtworks: Artwork[] = artworksForSale.slice(0, 3);

@@ -3,12 +3,25 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { LogOut, Mail } from 'lucide-react';
 import { ArtworkGallery } from '@/components/ArtworkGallery';
-import { artworksForSale } from '@/data/artworks';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { getAvailableArtworks } from '@/lib/airtable';
+import { useEffect, useState } from 'react';
+import type { Artwork } from '@/components/ArtworkGallery';
 
 export function PrivateGallery() {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const [artworks, setArtworks] = useState<Artwork[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadArtworks() {
+      const data = await getAvailableArtworks();
+      setArtworks(data);
+      setLoading(false);
+    }
+    loadArtworks();
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('art-collector-auth');
@@ -62,10 +75,21 @@ export function PrivateGallery() {
           </motion.div>
 
           {/* Gallery */}
-          <ArtworkGallery 
-            artworks={artworksForSale}
-            showFilters={true}
-          />
+          {loading ? (
+            <div className="text-center py-20">
+              <div className="inline-block w-8 h-8 border-2 border-art-blue border-t-transparent rounded-full animate-spin" />
+              <p className="text-art-muted mt-4">Chargement des œuvres...</p>
+            </div>
+          ) : artworks.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-art-muted">Aucune œuvre disponible pour le moment.</p>
+            </div>
+          ) : (
+            <ArtworkGallery 
+              artworks={artworks}
+              showFilters={true}
+            />
+          )}
 
           {/* Contact CTA */}
           <motion.div

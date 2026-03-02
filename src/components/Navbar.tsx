@@ -12,7 +12,7 @@ export function Navbar() {
 
   const navLinks = [
     { label: t('nav.services'), href: '#services', hasArrow: true },
-    { label: t('nav.private'), href: '/private', hasArrow: true },
+    { label: t('nav.private'), href: '#private-viewing', hasArrow: true },
     { label: t('nav.about'), href: '#about', hasArrow: true },
     { label: t('nav.contact'), href: '#contact', hasArrow: true },
   ];

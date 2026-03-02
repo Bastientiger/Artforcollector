@@ -62,7 +62,7 @@ export function HeroSection() {
             className="rounded-pill bg-art-blue text-white hover:bg-art-blue-dark px-6 py-3 h-auto text-sm font-medium"
             asChild
           >
-            <a href="/private">
+            <a href="#private-viewing">
               {t('hero.privateViewing')}
             </a>
           </Button>
